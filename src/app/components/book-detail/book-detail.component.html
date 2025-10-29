@@ -1,0 +1,96 @@
+<div class="container">
+  <button class="back-button" (click)="goBack()">
+    ← Volver
+  </button>
+
+  @if (loading()) {
+    <div class="loading">
+      <div class="spinner"></div>
+      <p>Cargando detalles...</p>
+    </div>
+  }
+
+  @if (!loading() && book()) {
+    <div class="book-detail">
+      <div class="book-cover-section">
+        <div class="book-cover-wrapper">
+          <img
+            [src]="getBookImage()"
+            [alt]="book()!.volumeInfo.title"
+            class="book-cover"
+          />
+        </div>
+      </div>
+
+      <div class="book-info-section">
+        <h1 class="book-title">{{ book()!.volumeInfo.title }}</h1>
+        
+        <div class="book-meta">
+          <div class="meta-item">
+            <span class="meta-label">👤 Autor:</span>
+            <span class="meta-value">{{ getAuthors() }}</span>
+          </div>
+
+          @if (book()!.volumeInfo.publisher) {
+            <div class="meta-item">
+              <span class="meta-label">📚 Editorial:</span>
+              <span class="meta-value">{{ book()!.volumeInfo.publisher }}</span>
+            </div>
+          }
+
+          @if (book()!.volumeInfo.publishedDate) {
+            <div class="meta-item">
+              <span class="meta-label">📅 Fecha de publicación:</span>
+              <span class="meta-value">{{ book()!.volumeInfo.publishedDate }}</span>
+            </div>
+          }
+
+          @if (book()!.volumeInfo.pageCount) {
+            <div class="meta-item">
+              <span class="meta-label">📄 Páginas:</span>
+              <span class="meta-value">{{ book()!.volumeInfo.pageCount }}</span>
+            </div>
+          }
+
+          @if (book()!.volumeInfo.language) {
+            <div class="meta-item">
+              <span class="meta-label">🌐 Idioma:</span>
+              <span class="meta-value">{{ book()!.volumeInfo.language }}</span>
+            </div>
+          }
+
+          <div class="meta-item">
+            <span class="meta-label">🏷️ Categorías:</span>
+            <span class="meta-value">{{ getCategories() }}</span>
+          </div>
+
+          @if (book()!.volumeInfo.averageRating) {
+            <div class="meta-item">
+              <span class="meta-label">⭐ Calificación:</span>
+              <span class="meta-value">{{ book()!.volumeInfo.averageRating }} / 5 ({{ book()!.volumeInfo.ratingsCount || 0 }} valoraciones)</span>
+            </div>
+          }
+        </div>
+
+        @if (book()!.volumeInfo.description) {
+          <div class="description-section">
+            <h2 class="section-title">Descripción</h2>
+            <p class="description" [innerHTML]="book()!.volumeInfo.description"></p>
+          </div>
+        }
+
+        @if (book()!.volumeInfo.previewLink) {
+          <button class="preview-button" (click)="openPreview()">
+            👁️ Ver vista previa
+          </button>
+        }
+      </div>
+    </div>
+  }
+
+  @if (!loading() && !book()) {
+    <div class="no-book">
+      <p>No se pudo cargar el libro</p>
+    </div>
+  }
+</div>

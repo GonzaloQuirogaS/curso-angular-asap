@@ -1,0 +1,55 @@
+<div class="container">
+  <header class="header">
+    <h1 class="title"> Google Books Explorer</h1>
+    <p class="subtitle">Descubre millones de libros en un solo lugar</p>
+  </header>
+
+  <app-search-bar 
+    (searchChanged)="onSearchChanged($event)"
+    (sortChanged)="onSortChanged($event)"
+  />
+
+  @if (loading()) {
+    <div class="loading">
+      <div class="spinner"></div>
+      <p>Cargando libros...</p>
+    </div>
+  }
+
+  @if (!loading() && books().length > 0) {
+   
+    
+    <div class="books-grid">
+      @for (book of books(); track book.id) {
+        <div class="book-card" (click)="viewBookDetail(book.id)">
+          <div class="book-image-container">
+            <img
+              [src]="getBookImage(book)"
+              [alt]="book.volumeInfo.title"
+              class="book-image"
+            />
+            @if (book.volumeInfo.averageRating) {
+              <div class="rating-badge">
+                {{ getRating(book) }}
+              </div>
+            }
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">{{ book.volumeInfo.title }}</h3>
+            <p class="book-author">{{ getAuthors(book) }}</p>
+            @if (book.volumeInfo.publishedDate) {
+              <p class="book-date">{{ book.volumeInfo.publishedDate.substring(0, 4) }}</p>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  }
+
+  @if (!loading() && books().length === 0) {
+    <div class="no-results">
+      <p>No se encontraron libros</p>
+      <p class="no-results-subtitle">Intenta con otra búsqueda</p>
+    </div>
+  }
+</div>
