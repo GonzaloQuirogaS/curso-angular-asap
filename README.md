@@ -12,6 +12,16 @@
 Con una interfaz elegante en modo oscuro y controles intuitivos, la aplicación ofrece una experiencia fluida para encontrar tu próxima lectura.
 
 ---
+## 🛠️ Tecnologías Utilizadas
+
+| Tecnología | Descripción |
+|-------------|-------------|
+| **Angular 20** | Framework SPA con las últimas features (Signals, Control Flow) |
+| **TypeScript 5** | Lenguaje tipado para código robusto y mantenible |
+| **Google Books API** | Base de datos de millones de libros |
+| **CSS3** | Estilos modernos con gradientes, animaciones y grid |
+
+---
 
 ## 🎯 Características Principales
 
@@ -89,43 +99,6 @@ src/app/
 └── app.component.ts
 ```
 
-## 🛠️ Tecnologías Utilizadas
-
-| Tecnología | Descripción |
-|-------------|-------------|
-| **Angular 20** | Framework SPA con las últimas features (Signals, Control Flow) |
-| **TypeScript 5** | Lenguaje tipado para código robusto y mantenible |
-| **Google Books API** | Base de datos de millones de libros |
-| **CSS3** | Estilos modernos con gradientes, animaciones y grid |
-
----
-
-## 🚀 Cómo Ejecutar el Proyecto
-
-### Prerrequisitos
-- Node.js (v18 o superior)
-- npm o yarn
-- Angular CLI 20
-
-### Instalación y Ejecución
-
-```bash
-# 1. Clonar el repositorio
-git clone https://github.com/GonzaloQuirogaS/curso-angular-asap.git
-
-# 2. Acceder a la carpeta del proyecto
-cd curso-angular-asap
-
-# 3. Instalar las dependencias
-npm install
-
-# 4. Ejecutar la aplicación en modo desarrollo
-ng serve
-
-# 5. Abrir en el navegador
-# Navega a http://localhost:4200
-```
-
 ## 📂 Componentes Principales
 
 ### HomeComponent
@@ -166,6 +139,43 @@ ng serve
 ---
 
 
+
+## 🚀 Cómo Ejecutar el Proyecto
+
+### Deploy en GitHub Pages
+
+El proyecto está publicado en **GitHub Pages**
+
+ Link del proyecto: [Google Books App](https://gonzaloquirogas.github.io/curso-angular-asap/)
+
+
+### Prerrequisitos para ejecucion en entorno local
+- Node.js (v18 o superior)
+- npm o yarn
+- Angular CLI 20
+
+### Instalación y Ejecución en entorno local
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/GonzaloQuirogaS/curso-angular-asap.git
+
+# 2. Acceder a la carpeta del proyecto
+cd curso-angular-asap
+
+# 3. Instalar las dependencias
+npm install
+
+# 4. Ejecutar la aplicación en modo desarrollo
+ng serve
+
+# 5. Abrir en el navegador
+# Navega a http://localhost:4200
+```
+
+
+
+
 ## 📝 Mejoras Futuras
 
 - [ ] Implementar paginación infinita (infinite scroll)
@@ -176,4 +186,3 @@ ng serve
 - [ ] Historial de búsquedas
 - [ ] Filtros adicionales (idioma, fecha, páginas)
 - [ ] Export a PDF de lista de libros
-
